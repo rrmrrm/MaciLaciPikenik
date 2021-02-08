@@ -1,0 +1,9 @@
+<RCC>
+  <qresource>
+    <file>bear.png</file>
+    <file>basket.png</file>
+    <file>tree.png</file>
+    <file>guard.png</file>
+    <file>grass.png</file>
+  </qresource>
+</RCC>
