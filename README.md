@@ -23,3 +23,19 @@ to run:
 ```
 ./untitled
 ```
+
+## how to build and run test
+go to ... /MaciLaciPikenik/
+```
+mkdir buildTest
+cd buildTest
+```
+```
+qmake6 ../test.pro
+make
+```
+
+To run the test:
+```
+./test
+```
