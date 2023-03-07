@@ -11,7 +11,7 @@
 #include <QPainter>
 #include <QPushButton>
 #include <QLayout>
-#include <QDesktopWidget>
+//#include <QDesktopWidget>
 #include <QDialog>
 #include <QKeyEvent>
 NewGameDialog::NewGameDialog( int minSize, QWidget *parent):
@@ -131,8 +131,8 @@ void MainWidget::newGameAccepted(){
     int bNum = newGameDialog->basketsNum;
 
     ///setting bSize according to the available space on screen:
-    QDesktopWidget* qd = QApplication::desktop() ;
-    QRect qr = qd->availableGeometry(this);
+    auto  qd = QGuiApplication::primaryScreen();
+    QRect qr = qd->availableGeometry();
     bSize = qr.width()<qr.height() ? qr.width() : qr.height();
     bSize = bSize - ui->MenuLayout->geometry().height();///we want the available space, the BUTTONS can take up
     bSize = bSize - 30;///header height
