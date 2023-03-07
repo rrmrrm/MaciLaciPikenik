@@ -1,13 +1,15 @@
 # MaciLaciPikenik
 
-## how to install and run on ubuntu:
+## how download build tools for running qt and testing:
 ```
 sudo apt update 
 sudo apt upgrade
 sudo apt install build-essential
+sudo apt install qmake6
 ```
 
-TODO install qmake if not present.
+
+## how to install and run on ubuntu:
 
 go to ... /MaciLaciPikenik/
 ```
