@@ -1,15 +1,15 @@
 #ifndef MODEL_H
 #define MODEL_H
 
-#include <QWidget>
+//#include <QWidget>
 #include <QTimer>
 #include <QString>
 #include <QVector>
-#include <QDialog>
+//#include <QDialog>
 #include <QList>
 #include "common.h"
 
-class MainWidget;
+//class MainWidget;
 
 struct Entity{
     enum DIR{ UP, LE, DO, RI};

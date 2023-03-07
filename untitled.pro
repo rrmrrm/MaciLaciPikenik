@@ -5,7 +5,7 @@
 #-------------------------------------------------
 
 QT       += core gui
-QT       += testlib
+#QT       += testlib
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -34,7 +34,7 @@ HEADERS += \
         mainwidget.h \
     model.h \
     common.h \
-    tester.h \
+#    tester.h \
     main.h
 
 FORMS += \

@@ -1,7 +1,7 @@
 #include "model.h"
 #include "common.h"
-#include "mainwidget.h"
-#include <QWidget>
+//#include "mainwidget.h"
+//#include <QWidget>
 #include <QRandomGenerator>
 #include <QVector>
 #include <QTimer>

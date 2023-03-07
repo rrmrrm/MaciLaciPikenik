@@ -5,11 +5,11 @@
 
 #include "main.h"
 
-#ifdef MYTEST
+//#ifdef MYTEST
 
 #include <QtTest>
 #include <QObject>
-#include "mainwidget.h"
+//#include "mainwidget.h"
 #include "model.h"
 #include "common.h"
 
@@ -161,8 +161,8 @@ private slots:
     }
 };
 
-QTEST_APPLESS_MAIN(Tester)
+QTEST_MAIN(Tester)
 //#include "tester.moc"
-#endif // MYTEST
+//#endif // MYTEST
 
 #endif /// TESTER_H
