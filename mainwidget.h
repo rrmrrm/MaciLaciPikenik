@@ -100,9 +100,13 @@ private:
 
 
 public slots:
+    void keyReleaseEvent(QKeyEvent *event);
     void keyPressEvent(QKeyEvent* event);
     void newGameAccepted();
     void setButtonState(STATE state, int row, int col );///signals the MainWidget, to change a buttons state
+signals:
+    void keyReleased(Qt::Key);
+    void keyPressed(Qt::Key);
 };
 
 #endif // MAINWIDGET_H

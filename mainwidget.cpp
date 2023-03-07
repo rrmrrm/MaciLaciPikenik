@@ -68,7 +68,8 @@ MainWidget::MainWidget(int minSize_, double stepInterval, QWidget *parent) :
     ///connecting model to time,-and basket indicator
     connect(model, SIGNAL( updateTime(double) ), ui->elapsedTimeIndicator, SLOT( display(double) ) );
     connect(model, SIGNAL(updateBasketIndicator(QString)), ui->basketIndicator, SLOT(setText(QString)) );
-
+    connect(this, SIGNAL(keyReleased(Qt::Key)), model, SLOT(keyReleased(Qt::Key)));
+    connect(this, SIGNAL(keyPressed(Qt::Key)), model, SLOT(keyPressed(Qt::Key)));
     ///connecting newGameButton to newGameAccepted(with the help of newGameDialog)
     connect(  ui->newGameButton, SIGNAL( clicked() ), newGameDialog, SLOT( exec() )  );
     connect(  newGameDialog, SIGNAL( accepted() ), this, SLOT( newGameAccepted() )  );
@@ -121,8 +122,11 @@ void MainWidget::clearTable(){
         }
     }
 }
+void MainWidget::keyReleaseEvent(QKeyEvent *event){
+    emit keyReleased( Qt::Key( event->key() ));
+}
 void MainWidget::keyPressEvent(QKeyEvent* event){
-    model->keyPressed( Qt::Key( event->key() ) );
+    emit keyPressed( Qt::Key( event->key() ) );
 }
 void MainWidget::newGameAccepted(){
     siz = newGameDialog->size;

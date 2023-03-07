@@ -113,11 +113,11 @@ public:
     Model(double stepInterval_);
     void newGame(int siz, int guardsNum, int treesNum, int basketsNum);
 
-    void keyPressed(Qt::Key key);
-
-    friend class Tester;
+   friend class Tester;
 
 public slots:
+    void keyPressed(Qt::Key key);
+    void keyReleased(Qt::Key);
     void step();
     void pause();
 signals:

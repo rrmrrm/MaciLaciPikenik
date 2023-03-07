@@ -147,12 +147,33 @@ void Model::newGame(int siz, int guardsNum, int treesNum, int basketsNum){
 
 }
 
-
+void Model::keyReleased(Qt::Key key){
+    switch( key ){
+    case Qt::Key_A:
+    case Qt::Key_W:
+    case Qt::Key_D:
+    case Qt::Key_S:{
+        laci->vel=0;
+        break;
+    }
+    default: {break;}
+    }
+}
 void Model::keyPressed(Qt::Key key){
     ///laci might be nullptr here, because the event can be fired before newGame() is called
     if(!laci)
         return;
-
+     
+    switch( key ){
+    case Qt::Key_A:
+    case Qt::Key_W:
+    case Qt::Key_D:
+    case Qt::Key_S:{
+        laci->vel=1;
+        break;
+    }
+    default: {break;}
+    }
     switch( key ){
     case Qt::Key_A:{laci->dir= Entity::LE;break;}
     case Qt::Key_W:{laci->dir= Entity::UP;break;}
