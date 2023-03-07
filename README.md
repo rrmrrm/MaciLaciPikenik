@@ -11,7 +11,10 @@ TODO install qmake if not present.
 
 go to ... /MaciLaciPikenik/
 ```
-qmake6 -makefile
+mkdir build
+cd build
+
+qmake6 -makefile ..
 make
 ```
 
