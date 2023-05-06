@@ -6,6 +6,8 @@ sudo apt update
 sudo apt upgrade
 sudo apt install build-essential
 sudo apt install qmake6
+sudo apt install qt6-base-dev
+
 ```
 
 
