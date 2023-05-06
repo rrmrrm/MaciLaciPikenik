@@ -22,11 +22,11 @@
   <property name="propTeszt" stdset="0">
    <string>ez egy teszt valtozo</string>
   </property>
-  <layout class="QGridLayout" name="MainLayout" rowstretch="0,0">
+  <layout class="QGridLayout" name="MainLayout" rowstretch="1,1000">
    <property name="sizeConstraint">
     <enum>QLayout::SetFixedSize</enum>
    </property>
-   <property name="margin">
+   <property name="margin" stdset="0">
     <number>0</number>
    </property>
    <property name="spacing">
@@ -34,16 +34,9 @@
    </property>
    <item row="1" column="0">
     <layout class="QVBoxLayout" name="GameLayout">
-     <item>
-      <layout class="QGridLayout" name="TableLayout">
-       <property name="sizeConstraint">
-        <enum>QLayout::SetDefaultConstraint</enum>
-       </property>
-       <property name="spacing">
-        <number>0</number>
-       </property>
-      </layout>
-     </item>
+     <property name="sizeConstraint">
+      <enum>QLayout::SetNoConstraint</enum>
+     </property>
     </layout>
    </item>
    <item row="0" column="0">
@@ -127,7 +120,6 @@
        <property name="font">
         <font>
          <pointsize>17</pointsize>
-         <weight>75</weight>
          <italic>false</italic>
          <bold>true</bold>
         </font>
@@ -163,8 +155,6 @@
   </layout>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
- <resources>
-  <include location="resources/images.qrc"/>
- </resources>
+ <resources/>
  <connections/>
 </ui>

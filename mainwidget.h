@@ -18,39 +18,19 @@ namespace Ui {
 }
 class Model;
 
-namespace My {
-    class QPushButton;
-}
 
 
 
-class My::QPushButton : public ::QPushButton {
-    Q_OBJECT
+class Field {
 public:
-    int sFentrol, oBalrol;
-    ///button's size in pixels
-    int bSize;
+    int sFentrol, oBalrol;\
     STATE state;
-    QPixmap* pixmap;
 
-    QPushButton(int sFentrol_, int oBalrol_, int s, const QString& text = "", QWidget* parent = nullptr):  ::QPushButton(text, parent),
+    Field(int sFentrol_, int oBalrol_, int s):
             sFentrol(sFentrol_), oBalrol(oBalrol_) ,
-            bSize(s),
-            state(GRASS), pixmap( new QPixmap(bSize,bSize) ) {
+            state(GRASS)
+    {}
 
-            setIcon( QPixmap(":/grass.png") );
-            setIconSize( QSize(bSize,bSize) );
-    }
-
-    void changeIcon ( const QImage& foreground){
-        QPixmap background(":/grass.png");
-        QPainter painter(&background);
-
-        painter.drawImage(QPoint(0,0), foreground);
-
-        setIcon(background);
-        setIconSize( QSize(width(),height()) );
-    }
 };
 
 class NewGameDialog: public QDialog {
@@ -68,12 +48,30 @@ public:
     NewGameDialog(int minSize_, QWidget *parent = nullptr);
 
 
-    int getNewSize();
+    //int getNewSize();
+private slots:
+    // adds the new table siz to the callchain
+    void callAcceptSendTableSiz() {
+        assert(size != 0);
+        emit acceptSendTableSiz(size);
+    }
 public slots:
     void changeValue(int c);
+signals:
+    void acceptSendTableSiz(int);
 };
 
+
+class MainWidget;
 ///TODO: dtor-ok megírása
+class FieldsWidget : public QWidget{
+    Q_OBJECT
+    MainWidget* owner;
+    void paintEvent(QPaintEvent* e) override;
+public:
+    FieldsWidget(MainWidget* owner);
+
+};
 
 class MainWidget : public QWidget {
     Q_OBJECT
@@ -83,26 +81,25 @@ public:
     ~MainWidget();
 
     void generateTable();
-    void clearTable();
     friend class Tester;
+    friend FieldsWidget;
 private:
     Ui::MainWidget *ui;
-
     NewGameDialog* newGameDialog;
+    QWidget* fields;
     QDialog* won;
     QDialog* lost;
     Model* model;
-
-    QVector< QVector <My::QPushButton*> > buttonTable;
+    std::vector<std::vector<Field> > fieldTable;
     const int minSize;/// minimal number of buttons in each column and row
     int siz;
     int bSize;///size of the buttons
-
-
+    //static std::map<STATE, QString> images;
+    std::map<STATE, QImage> images;
 public slots:
-    void keyReleaseEvent(QKeyEvent *event);
-    void keyPressEvent(QKeyEvent* event);
-    void newGameAccepted();
+    void keyReleaseEvent(QKeyEvent *event) override;
+    void keyPressEvent(QKeyEvent* event) override;
+    void newGameAcceptedSiz(int);
     void setButtonState(STATE state, int row, int col );///signals the MainWidget, to change a buttons state
 signals:
     void keyReleased(Qt::Key);
