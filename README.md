@@ -43,3 +43,10 @@ To run the test:
 ```
 ./test
 ```
+
+## notes
+apparently some QImages can't be draw if they are defined in the global space like in a namespace or as a static class member.
+Specifically:
+according to this post
+https://stackoverflow.com/a/64863927/19251074
+qt resources(image file in my case) cant be loaded at the time that static storage duration variables (a static QImage in my case) are initialized
