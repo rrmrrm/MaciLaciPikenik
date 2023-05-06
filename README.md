@@ -9,7 +9,7 @@ sudo apt install qmake6
 sudo apt install qt6-base-dev
 
 ```
-
+if you installed qt creator there is a chance that a bad qmake toolchain came with it. in this case open Qt Creator, go to Projects menu, click "Manage kits", and modify the toolchain(the Kit): at Qt Versions tab set the path of the qmake (for me the right path is /usr/bin/qmake6 which is a link to/lib/qt6/bin/qmake6).
 
 ## how to install and run on ubuntu:
 
