@@ -159,9 +159,13 @@ private slots:
         ///az időzítő leállt, így a játék is.
         QCOMPARE( model->timer->isActive(), false );
     }
+    void failTest(){
+	// to see if the testing environment works and to scare me from time to time
+       QVERIFY(false); 
+    }
 };
 
-QTEST_MAIN(Tester)
+QTEST_APPLESS_MAIN(Tester)
 //#include "tester.moc"
 //#endif // MYTEST
 
